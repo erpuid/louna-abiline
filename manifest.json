@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Ülemiste toiduabiline",
+  "version": "1.0",
+  "description": "Toiduabiline",
+
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-16.png",
+    "48": "images/icon-16.png",
+    "128": "images/icon-16.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://www.ulemistecity.ee/paevapakkumised/",
+        "https://www.ulemistecity.ee/en/daily-offers/"
+      ]
+    }
+  ]
+}
