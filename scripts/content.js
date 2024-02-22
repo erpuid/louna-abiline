@@ -35,6 +35,24 @@ function foodHelper() {
       for (const child of nodesToRemove) {
         menu.removeChild(child)
       }
+
+      const other = document.createElement('article')
+
+      other.insertAdjacentHTML('afterbegin', `
+        <div class="row py-2">
+            <div class="col-lg-4 col-xl-4">
+                <h3>Midagi muud</h3>
+            </div>            
+            <div class="col-lg-7 ml-lg-auto">
+                ${['Räägupesa', 'Burger kitchen', 'Chi', 'Shaurma'].map(p => {
+                  return `<div style="margin-bottom: 8px;">${p}</div>`
+                }).join('\n')}
+            </div>
+        </div>
+      `)
+
+      menu.appendChild(document.createElement('hr'))
+      menu.appendChild(other)
     }
 
 
