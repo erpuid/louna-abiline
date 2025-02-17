@@ -8,12 +8,8 @@ observer.observe(document, {
 });
 
 function foodHelper(obs) {
+  document.querySelector('.ld-ulemiste-form')?.remove();
   const content = document.getElementsByClassName('ld-ulemiste-body')[0];
-
-  const formDiv = document.querySelector('.ld-ulemiste-form');
-  if (formDiv) {
-    formDiv.remove();
-  }
 
   if (content) {
     const menu = content.querySelector('div');
@@ -54,6 +50,7 @@ function foodHelper(obs) {
       for (const child of nodesToRemove) {
         menu.removeChild(child)
       }
+      removeAddressAndOpeningTimes(children)
 
       const other = document.createElement('article')
 
@@ -74,5 +71,19 @@ function foodHelper(obs) {
     }
 
 
+  }
+}
+
+function removeAddressAndOpeningTimes(children) {
+  for (const child of children) {
+    let div = child.getElementsByClassName('col-lg-4 col-xl-4')
+    if (div.length) {
+      let children1 = [...div[0].children]
+      for (const tag of children1) {
+        if (tag.tagName.toLowerCase() !== 'header') {
+          div[0].removeChild(tag)
+        }
+      }
+    }
   }
 }
