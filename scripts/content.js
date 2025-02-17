@@ -1,13 +1,27 @@
-foodHelper();
+const observer = new MutationObserver((mutations, obs) => {
+  foodHelper(obs)
+});
 
-function foodHelper() {
+observer.observe(document, {
+  childList: true,
+  subtree: true
+});
+
+function foodHelper(obs) {
   const content = document.getElementsByClassName('ld-ulemiste-body')[0];
 
   if (content) {
     const menu = content.querySelector('div');
 
     const tags = []
-    for (const child of menu.children) {
+
+    let children = menu.children
+    if (!children.length) {
+      return
+    }
+    obs.disconnect();
+
+    for (const child of children) {
       tags.push(child.tagName)
     }
 
@@ -18,7 +32,7 @@ function foodHelper() {
     } else {
       let removedPrevious = false
       const nodesToRemove = [];
-      for (const child of menu.children) {
+      for (const child of children) {
         if (removedPrevious) {
           nodesToRemove.push(child)
           removedPrevious = false
