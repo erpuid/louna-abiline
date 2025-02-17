@@ -65,7 +65,6 @@ function foodHelper(obs) {
         </div>
       `)
 
-      menu.appendChild(document.createElement('hr'))
       menu.appendChild(other)
     }
 
