@@ -38,7 +38,8 @@ function foodHelper(obs) {
           removedPrevious = false
         } else if (child.tagName === 'ARTICLE') {
           const title = child.getElementsByClassName("section-title")[0]
-          if (['dylan ülemiste bistroo', 'gala sushi', 'tlb burger', 'freya foodbar'].includes(title.textContent.toLowerCase())) {
+          if (['dylan ülemiste bistroo', 'gala sushi', 'tlb burger', 'freya foodbar', 'plus kohvik tervisemaja 2', 'health centre', 'fredo']
+              .includes(title.textContent.toLowerCase())) {
             nodesToRemove.push(child)
             removedPrevious = true
           }
