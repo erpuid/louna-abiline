@@ -10,6 +10,11 @@ observer.observe(document, {
 function foodHelper(obs) {
   const content = document.getElementsByClassName('ld-ulemiste-body')[0];
 
+  const formDiv = document.querySelector('.ld-ulemiste-form');
+  if (formDiv) {
+    formDiv.remove();
+  }
+
   if (content) {
     const menu = content.querySelector('div');
 
